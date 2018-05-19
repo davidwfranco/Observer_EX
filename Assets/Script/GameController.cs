@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
+	public static GameController instance;
+	public Camera cam;
 	Subject sub;
 	public GameObject squareObj0;
 	public GameObject squareObj1;
@@ -12,6 +14,24 @@ public class GameController : MonoBehaviour {
 	public GameObject squareObj5;
 	private Observer[] observers;
 
+	void Awake () {
+		//Check if this is the only instance of this object and if not, kills this instance
+		if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        //Set the camera of the game to the "cam" variable
+        if (cam == null)
+        {
+            cam = Camera.main;
+        }
+	}
+	
 	// Use this for initialization
 	void Start () {
 		sub = new Subject();
@@ -33,9 +53,13 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown(0)) {
-			sub.Notify("On");
+			this.SendNotify("On");
 		} else if (Input.GetMouseButtonDown(1)) {
-			sub.Notify("Off");
+			this.SendNotify("Off");
 		}
+	}
+
+	public void SendNotify(string ev) {
+		sub.Notify(ev);
 	}
 }
