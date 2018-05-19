@@ -19,4 +19,8 @@ public class Circle : MonoBehaviour {
 		Debug.Log("AAAAAAAAAAAAAA");
 		gControll.SendNotify("Black");
 	}
+
+	void OnTriggerExit2D(Collider2D other) {
+		gControll.SendNotify("Off");	
+	}
 }
