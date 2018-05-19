@@ -51,13 +51,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BottomSquare.cs" />
-     <Compile Include="Assets\MiddleSquare.cs" />
+     <Compile Include="Assets\Script\BottomSquare.cs" />
      <Compile Include="Assets\Script\GameController.cs" />
+     <Compile Include="Assets\Script\MiddleSquare.cs" />
      <Compile Include="Assets\Script\Observer.cs" />
+     <Compile Include="Assets\Script\Square.cs" />
      <Compile Include="Assets\Script\Subject.cs" />
-     <Compile Include="Assets\Square.cs" />
-     <Compile Include="Assets\TopSquare.cs" />
+     <Compile Include="Assets\Script\TopSquare.cs" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/home/davidwfranco/gamedev/Observer_EX/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
